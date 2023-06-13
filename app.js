@@ -34,11 +34,11 @@ app.get("/api/v1/getkey", (req, res, next) => {
   res.status(200).json({ key: process.env.RAZORPAY_API_KEY });
 });
 
-app.use(express.static(path.join(__dirname, "../frontend/build")));
+// app.use(express.static(path.join(__dirname, "../frontend/build")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "../frontend/build/index.html"));
+// });
 
 // Middleware for Errors
 app.use(errorMiddleware);

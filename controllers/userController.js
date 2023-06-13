@@ -6,13 +6,6 @@ const nodemailer = require("nodemailer");
 
 const sendNotificationEmail = async (user) => {
   try {
-    // Create a Nodemailer transporter
-
-    console.log("process.env.SMPT_HOST", process.env.SMPT_HOST);
-    console.log("process.env.SMPT_PORT", process.env.SMPT_PORT);
-    console.log("process.env.SMPT_SERVICE", process.env.SMPT_SERVICE);
-    console.log("process.env.SMPT_MAIL", process.env.SMPT_MAIL);
-    console.log("process.env.SMPT_PASSWORD", process.env.SMPT_PASSWORD);
     const transporter = nodemailer.createTransport({
       host: process.env.SMPT_HOST,
       port: process.env.SMPT_PORT,

@@ -41,8 +41,8 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   console.log("mobileNumber", mobileNumber);
   const newRegisteredUser = await User.create({
     upiId,
-    mobileNumber: mobileNumber ? mobileNumber : undefined,
-    email: email ? email : undefined,
+    mobileNumber: mobileNumber,
+    email: email,
     bookpdf_id,
   });
   console.log("newRegisteredUser", newRegisteredUser);

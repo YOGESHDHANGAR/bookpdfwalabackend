@@ -38,7 +38,7 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
   const newRegisteredUser = await User.create({
     upiId,
-    email: bookpdf_id + "___" + email,
+    email: mobileNumber + "___" + email,
     mobileNumber,
     bookpdf_id,
   });

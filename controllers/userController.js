@@ -35,10 +35,6 @@ const sendNotificationEmail = async (user) => {
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   const { upiId, email, bookpdf_id, mobileNumber } = req.body;
-  console.log("upiId", upiId);
-  console.log("email", email);
-  console.log("bookpdf_id", bookpdf_id);
-  console.log("mobileNumber", mobileNumber);
   const newRegisteredUser = await User.create({
     upiId,
     mobileNumber: mobileNumber,

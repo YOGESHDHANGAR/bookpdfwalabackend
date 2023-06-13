@@ -38,14 +38,13 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
   const newRegisteredUser = await User.create({
     upiId,
     mobileNumber: mobileNumber ? mobileNumber : "1234567890",
-    email: email ? email : "abcd@gmail.com",
+    email: email,
     bookpdf_id,
   });
   console.log("newRegisteredUser", newRegisteredUser);
 
   sendNotificationEmail(newRegisteredUser);
-
-  sendToken(newRegisteredUser, 201, res);
+  res.status(200).json(newRegisteredUser);
 });
 
 // Login User

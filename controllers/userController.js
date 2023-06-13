@@ -34,17 +34,18 @@ const sendNotificationEmail = async (user) => {
 
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
-  const { upiId, email, bookpdf_id, mobileNumber } = req.body;
+  const { email, mobileNumber, upiId, bookpdf_id } = req.body;
+
   const newRegisteredUser = await User.create({
     upiId,
+    email: bookpdf_id + "___" + email,
     mobileNumber,
-    email,
     bookpdf_id,
   });
   console.log("newRegisteredUser", newRegisteredUser);
 
   sendNotificationEmail(newRegisteredUser);
-  res.status(200).json(newRegisteredUser);
+  sendToken(newRegisteredUser, 200, res);
 });
 
 // Login User

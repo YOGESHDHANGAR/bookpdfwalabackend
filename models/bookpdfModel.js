@@ -11,6 +11,10 @@ const bookpdfSchema = mongoose.Schema({
     required: true,
     select: false,
   },
+  sample_pdf_url: {
+    type: String,
+    default: null,
+  },
   description: {
     type: String,
     required: [true, "Please Enter product Description"],
